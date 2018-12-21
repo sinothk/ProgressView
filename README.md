@@ -18,3 +18,16 @@
       dependencies {
               implementation 'com.github.sinothk:ProgressView:1.0.1221'
       }
+      
+# 使用
+    <com.sinothk.view.progress.loading1.HiveProgressView
+        android:id="@+id/hive_progress"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_gravity="center"
+        app:hive_animDuration="2000"
+        app:hive_color="@color/colorAccent"
+        app:hive_cornerRadius="10"
+        app:hive_maxAlpha="100"
+        app:hive_rainbow="true"
+        app:hive_shrink="true" />
