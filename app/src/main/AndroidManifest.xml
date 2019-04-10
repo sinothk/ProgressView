@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProgressLoading1DemoMainActivity" />
+        <activity android:name=".ProgressLoading2DemoMainActivity" />
 
     </application>
 

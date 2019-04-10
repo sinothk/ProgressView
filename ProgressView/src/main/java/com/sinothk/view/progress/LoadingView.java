@@ -1,8 +1,15 @@
 package com.sinothk.view.progress;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.sinothk.view.progress.loading1.HiveProgressView;
 
 /**
  * <pre>
@@ -13,17 +20,94 @@ import android.widget.LinearLayout;
  * <pre>
  */
 public class LoadingView extends LinearLayout {
+    // 属性
+    private int viewStyle;
+    private int resultErrorImgId;
+    private int resultEmptyImgId;
+    private int resultNetErrorImgId;
+    //
+    private HiveProgressView progressView;
+    private TextView tipTv;
+    private LinearLayout resultView;
+    private ImageView tipImgIv;
 
     public LoadingView(Context context) {
         super(context);
     }
 
     public LoadingView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public LoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        initAttributes(attrs, defStyleAttr);
+
+        initView();
     }
 
+    private void initAttributes(AttributeSet attrs, int defStyleAttr) {
+        final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingView, defStyleAttr, 0);
+
+        viewStyle = a.getInteger(R.styleable.LoadingView_view_style, 0);
+
+        resultErrorImgId = a.getResourceId(R.styleable.LoadingView_res_img_error, 0);
+        resultEmptyImgId = a.getResourceId(R.styleable.LoadingView_res_img_empty, 0);
+        resultNetErrorImgId = a.getResourceId(R.styleable.LoadingView_res_img_net_error, 0);
+
+        a.recycle();
+    }
+
+    private void initView() {//orientation
+        this.setOrientation(VERTICAL);
+
+//        if (viewStyle == null) {
+//
+//        }
+        View loadingView = LayoutInflater.from(getContext()).inflate(R.layout.progress_view_style1, null);
+        progressView = loadingView.findViewById(R.id.progressView);
+
+        resultView = loadingView.findViewById(R.id.resultView);
+        tipImgIv = loadingView.findViewById(R.id.tipImgIv);
+        tipTv = loadingView.findViewById(R.id.tipTv);
+
+
+        this.addView(loadingView);
+    }
+
+    public void setRetryListener(OnClickListener retryListener) {
+        if (retryListener != null && resultView != null) {
+            resultView.setOnClickListener(retryListener);
+        }
+    }
+
+    public void showLoading() {
+        progressView.setVisibility(VISIBLE);
+        resultView.setVisibility(GONE);
+    }
+
+    public void showEmpty(String tipTxt) {
+        progressView.setVisibility(GONE);
+        resultView.setVisibility(VISIBLE);
+
+        tipImgIv.setImageResource(resultEmptyImgId);
+        tipTv.setText(tipTxt);
+    }
+
+    public void showError(String tipTxt) {
+        progressView.setVisibility(GONE);
+        resultView.setVisibility(VISIBLE);
+
+        tipImgIv.setImageResource(resultErrorImgId);
+        tipTv.setText(tipTxt);
+    }
+
+    public void showNetError(String tipTxt) {
+        progressView.setVisibility(GONE);
+        resultView.setVisibility(VISIBLE);
+
+        tipImgIv.setImageResource(resultNetErrorImgId);
+        tipTv.setText(tipTxt);
+    }
 }
