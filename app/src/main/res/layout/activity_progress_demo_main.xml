@@ -5,20 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <com.sinothk.view.progress.loading1.HiveProgressView
-        android:id="@+id/hive_progress"
-        android:layout_width="92dp"
-        android:layout_height="92dp"
-        android:layout_gravity="center"
-        app:hive_animDuration="2000"
-        app:hive_color="@color/colorAccent"
-        app:hive_cornerRadius="10"
-        app:hive_maxAlpha="100"
-        app:hive_rainbow="true"
-        app:hive_shrink="true" />
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="风格1" />
 </LinearLayout>
 
 
