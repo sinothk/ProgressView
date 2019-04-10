@@ -52,9 +52,9 @@ public class LoadingView extends LinearLayout {
 
         viewStyle = a.getInteger(R.styleable.LoadingView_view_style, 0);
 
-        resultErrorImgId = a.getResourceId(R.styleable.LoadingView_res_img_error, 0);
-        resultEmptyImgId = a.getResourceId(R.styleable.LoadingView_res_img_empty, 0);
-        resultNetErrorImgId = a.getResourceId(R.styleable.LoadingView_res_img_net_error, 0);
+        resultErrorImgId = a.getResourceId(R.styleable.LoadingView_res_img_error, R.drawable.progress_view_error);
+        resultEmptyImgId = a.getResourceId(R.styleable.LoadingView_res_img_empty, R.drawable.progress_view_no_data);
+        resultNetErrorImgId = a.getResourceId(R.styleable.LoadingView_res_img_net_error, R.drawable.progress_view_no_signal);
 
         a.recycle();
     }
@@ -62,16 +62,19 @@ public class LoadingView extends LinearLayout {
     private void initView() {//orientation
         this.setOrientation(VERTICAL);
 
-//        if (viewStyle == null) {
-//
-//        }
-        View loadingView = LayoutInflater.from(getContext()).inflate(R.layout.progress_view_style1, null);
+        View loadingView;
+        if (viewStyle == 0) {
+            loadingView = LayoutInflater.from(getContext()).inflate(R.layout.progress_view_style1, null);
+        }else{
+            loadingView = LayoutInflater.from(getContext()).inflate(R.layout.progress_view_style1, null);
+        }
+
+        // 通用部分
         progressView = loadingView.findViewById(R.id.progressView);
 
         resultView = loadingView.findViewById(R.id.resultView);
         tipImgIv = loadingView.findViewById(R.id.tipImgIv);
         tipTv = loadingView.findViewById(R.id.tipTv);
-
 
         this.addView(loadingView);
     }
