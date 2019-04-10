@@ -1,5 +1,5 @@
 # ProgressView
-进度条
+加载进度View
 
 # 引入
 
