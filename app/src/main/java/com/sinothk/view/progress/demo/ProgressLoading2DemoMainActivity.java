@@ -37,8 +37,8 @@ public class ProgressLoading2DemoMainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
 //                        progressView.showEmpty("暂无数据");
-//                        progressView.showError("访问失败");
-                        progressView.showNetError("网络不可用");
+                        progressView.showError("访问失败");
+//                        progressView.showNetError("网络不可用");
                     }
                 });
             }
