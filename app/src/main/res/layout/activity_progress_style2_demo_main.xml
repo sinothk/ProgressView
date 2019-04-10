@@ -13,9 +13,9 @@
         android:layout_width="@dimen/dp_120"
         android:layout_height="@dimen/dp_120"
         android:layout_gravity="center"
-        app:res_img_error="@drawable/no_error"
-        app:res_img_empty="@drawable/no_data"
-        app:res_img_net_error="@drawable/no_signal"
+        app:res_img_empty="@drawable/progress_view_no_data"
+        app:res_img_error="@drawable/progress_view_error"
+        app:res_img_net_error="@drawable/progress_view_no_signal"
         app:view_style="2" />
 </LinearLayout>
 

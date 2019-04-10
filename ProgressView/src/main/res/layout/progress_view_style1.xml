@@ -36,7 +36,7 @@
             android:id="@+id/tipImgIv"
             android:layout_width="@dimen/dp_56"
             android:layout_height="@dimen/dp_56"
-            android:src="@drawable/no_signal" />
+            android:src="@drawable/progress_view_no_signal" />
 
         <TextView
             android:id="@+id/tipTv"
