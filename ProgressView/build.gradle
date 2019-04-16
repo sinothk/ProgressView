@@ -5,8 +5,6 @@ group='com.github.sinothk'
 android {
     compileSdkVersion 28
 
-
-
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
@@ -32,5 +30,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation 'com.github.sinothk:AndroidRes:1.0.0409'
+    implementation 'com.github.sinothk.AndroidBase:All:1.0.0425'
 }
